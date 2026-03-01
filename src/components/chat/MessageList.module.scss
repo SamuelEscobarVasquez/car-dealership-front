@@ -1,0 +1,18 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.messageList {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-md 0;
+  @include custom-scrollbar(rgba($primary-main, 0.3));
+}
+
+.emptyState {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  height: 100%;
+  text-align: center;
+  padding: $spacing-xl;
+}

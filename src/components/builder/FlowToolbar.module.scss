@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.toolbar {
+  @include flex-between;
+  height: $flow-toolbar-height;
+  padding: 0 $spacing-md;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ffffff;
+  
+  :global([data-theme="dark"]) & {
+    border-bottom-color: #424242;
+    background: #1e1e1e;
+  }
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}

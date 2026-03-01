@@ -1,0 +1,83 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.messageContainer {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  
+  &.user {
+    flex-direction: row-reverse;
+    
+    .messageContent {
+      align-items: flex-end;
+    }
+  }
+  
+  &.assistant {
+    .messageContent {
+      align-items: flex-start;
+    }
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  max-width: 70%;
+  
+  @include mobile {
+    max-width: 85%;
+  }
+}
+
+.role {
+  font-size: 0.75rem;
+  padding: 0 $spacing-xs;
+}
+
+.bubble {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-lg;
+  word-wrap: break-word;
+  
+  &.userBubble {
+    background-color: $primary-main;
+    color: white;
+    border-bottom-right-radius: $radius-sm;
+  }
+  
+  &.assistantBubble {
+    background-color: #ffffff;
+    color: #212121;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: $radius-sm;
+    
+    :global([data-theme="dark"]) & {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-color: #424242;
+    }
+  }
+}
+
+.text {
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.timestamp {
+  font-size: 0.65rem;
+  padding: 0 $spacing-xs;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}

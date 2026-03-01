@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.palette {
+  width: $flow-panel-width;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  @include custom-scrollbar(rgba($primary-main, 0.3));
+  
+  :global([data-theme="dark"]) & {
+    border-right-color: #424242;
+  }
+}
+
+.title {
+  padding: $spacing-md;
+}
+
+.category {
+  padding: $spacing-sm;
+}
+
+.categoryTitle {
+  display: block;
+  padding: 0 $spacing-sm;
+  margin-bottom: $spacing-xs;
+}
+
+.nodeItem {
+  cursor: grab;
+  margin-bottom: $spacing-xs;
+  border-radius: $radius-sm;
+  transition: background-color $transition-fast;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}

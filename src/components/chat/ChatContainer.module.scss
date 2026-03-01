@@ -1,0 +1,84 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  height: 100%;
+  padding: $spacing-lg;
+  display: flex;
+  gap: $spacing-md;
+  
+  @include mobile {
+    padding: $spacing-sm;
+    flex-direction: column;
+  }
+}
+
+.conversationsSidebar {
+  @include flex-column;
+  width: 280px;
+  min-width: 280px;
+  height: calc(100vh - #{$spacing-lg * 2});
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  
+  :global([data-theme="dark"]) & {
+    border-color: #424242;
+  }
+  
+  @include mobile {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+}
+
+.sidebarHeader {
+  @include flex-between;
+  padding: $spacing-sm $spacing-md;
+}
+
+.conversationList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+.conversationItem {
+  border-bottom: 1px solid #e0e0e0;
+  
+  :global([data-theme="dark"]) & {
+    border-bottom-color: #424242;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.chatPaper {
+  @include flex-column;
+  flex: 1;
+  max-width: $chat-max-width;
+  height: calc(100vh - #{$spacing-lg * 2});
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  
+  :global([data-theme="dark"]) & {
+    border-color: #424242;
+  }
+  
+  @include mobile {
+    height: calc(100vh - 200px - #{$spacing-sm * 2});
+    max-width: 100%;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-md;
+  border-bottom: 1px solid #e0e0e0;
+  
+  :global([data-theme="dark"]) & {
+    border-bottom-color: #424242;
+  }
+}

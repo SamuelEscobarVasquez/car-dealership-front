@@ -1,0 +1,26 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  @include flex-column;
+  height: 100%;
+}
+
+.mainContent {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.canvasWrapper {
+  flex: 1;
+  position: relative;
+  
+  .react-flow {
+    background: $bg-light;
+    
+    :global([data-theme="dark"]) & {
+      background: #121212;
+    }
+  }
+}

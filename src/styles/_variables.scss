@@ -1,0 +1,93 @@
+// SCSS Variables
+// Import these in your SCSS files using: @use '@/styles/variables' as *;
+
+// Colors - synced with theme/colors.ts
+$primary-main: #1976d2;
+$primary-light: #42a5f5;
+$primary-dark: #1565c0;
+
+$secondary-main: #9c27b0;
+$secondary-light: #ba68c8;
+$secondary-dark: #7b1fa2;
+
+$success: #2e7d32;
+$warning: #ed6c02;
+$error: #d32f2f;
+$info: #0288d1;
+
+// Node colors
+$node-memory: #8e24aa;
+$node-orchestrator: #1565c0;
+$node-faq-specialist: #2e7d32;
+$node-generic-response: #ed6c02;
+$node-response: #d32f2f;
+
+// Background
+$bg-light: #f5f5f5;
+$bg-paper: #ffffff;
+$bg-dark: #121212;
+$bg-dark-paper: #1e1e1e;
+
+// Text
+$text-primary: #212121;
+$text-secondary: #757575;
+$text-dark-primary: #ffffff;
+$text-dark-secondary: #b0b0b0;
+
+// Chat
+$chat-user-bubble: #1976d2;
+$chat-assistant-bubble: #f5f5f5;
+$chat-user-text: #ffffff;
+$chat-assistant-text: #212121;
+
+// Spacing
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5;  // 4px
+$spacing-sm: $spacing-unit;        // 8px
+$spacing-md: $spacing-unit * 2;    // 16px
+$spacing-lg: $spacing-unit * 3;    // 24px
+$spacing-xl: $spacing-unit * 4;    // 32px
+$spacing-xxl: $spacing-unit * 6;   // 48px
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+$shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.16);
+
+// Transitions
+$transition-fast: 150ms ease-in-out;
+$transition-normal: 300ms ease-in-out;
+$transition-slow: 500ms ease-in-out;
+
+// Breakpoints (matching MUI defaults)
+$breakpoint-xs: 0;
+$breakpoint-sm: 600px;
+$breakpoint-md: 900px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1536px;
+
+// Z-index
+$z-drawer: 1200;
+$z-modal: 1300;
+$z-snackbar: 1400;
+$z-tooltip: 1500;
+
+// Sidebar
+$sidebar-width: 240px;
+$sidebar-collapsed-width: 64px;
+
+// Chat
+$chat-input-height: 56px;
+$chat-max-width: 800px;
+
+// Flow Builder
+$flow-toolbar-height: 56px;
+$flow-panel-width: 300px;

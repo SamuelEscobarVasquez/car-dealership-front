@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sidebar {
+  height: 100vh;
+}
+
+.header {
+  padding: $spacing-md;
+  text-align: center;
+}
+
+.navList {
+  flex: 1;
+  padding: $spacing-sm;
+}
+
+.footer {
+  padding: $spacing-md;
+  margin-top: auto;
+}

@@ -1,0 +1,36 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.panel {
+  width: $flow-panel-width;
+  height: 100%;
+  overflow-y: auto;
+  border-left: 1px solid #e0e0e0;
+  @include custom-scrollbar(rgba($primary-main, 0.3));
+  
+  :global([data-theme="dark"]) & {
+    border-left-color: #424242;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-md;
+}
+
+.content {
+  padding: $spacing-md;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-lg;
+  padding-top: $spacing-md;
+  border-top: 1px solid #e0e0e0;
+  
+  :global([data-theme="dark"]) & {
+    border-top-color: #424242;
+  }
+}

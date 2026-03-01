@@ -1,0 +1,60 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.customNode {
+  min-width: 180px;
+  background: #ffffff;
+  border: 2px solid;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: box-shadow $transition-fast, background-color 0.2s ease;
+  
+  :global([data-theme="dark"]) & {
+    background: #1e1e1e;
+  }
+  
+  &.selected {
+    box-shadow: $shadow-lg;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  color: white;
+}
+
+.icon {
+  @include flex-center;
+  
+  svg {
+    font-size: 1rem;
+  }
+}
+
+.type {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.content {
+  padding: $spacing-sm;
+  color: #212121;
+  
+  :global([data-theme="dark"]) & {
+    color: #ffffff;
+  }
+}
+
+.handle {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid white !important;
+  
+  &:hover {
+    transform: scale(1.2);
+  }
+}
