@@ -5,19 +5,16 @@ WORKDIR /app
 # Dependencias básicas para algunas libs nativas
 RUN apk add --no-cache libc6-compat
 
-# Instalar pnpm globalmente
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
 ENV NODE_ENV=production
 
 # ========== Etapa de dependencias ==========
 FROM base AS deps
 
 # Copiamos solo archivos de dependencias para aprovechar cache
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 
 # Instala todas las dependencias necesarias para el build
-RUN pnpm install --frozen-lockfile
+RUN npm ci
 
 # ========== Etapa de build ==========
 FROM base AS builder
@@ -25,7 +22,7 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN pnpm run build
+RUN npm run build
 
 # ========== Etapa de runtime (imagen final, ligera) ==========
 FROM node:22-alpine AS runner
