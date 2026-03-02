@@ -413,10 +413,31 @@ export const NodeConfigPanel: React.FC<NodeConfigPanelProps> = ({
         )}
 
         {nodeType === 'validator.required_fields' && (
-          <ValidatorConfigEditor
-            config={nodeData.config?.useCases || defaultValidatorConfig.useCases}
-            onChange={(useCases) => handleConfigChange('useCases', useCases)}
-          />
+          <>
+            <Box sx={{ mb: 2 }}>
+              <Typography variant="caption" color="text.secondary">
+                Caso de uso predeterminado (cuando no hay orquestador):
+              </Typography>
+              <TextField
+                select
+                value={nodeData.config?.defaultUseCase || ''}
+                onChange={(e) => handleConfigChange('defaultUseCase', e.target.value || undefined)}
+                fullWidth
+                size="small"
+                margin="dense"
+                SelectProps={{ native: true }}
+              >
+                <option value="">Usar orquestador</option>
+                {Object.keys(nodeData.config?.useCases || defaultValidatorConfig.useCases).map((uc) => (
+                  <option key={uc} value={uc}>{uc}</option>
+                ))}
+              </TextField>
+            </Box>
+            <ValidatorConfigEditor
+              config={nodeData.config?.useCases || defaultValidatorConfig.useCases}
+              onChange={(useCases) => handleConfigChange('useCases', useCases)}
+            />
+          </>
         )}
 
         {nodeType === 'autos.specialist.openai' && (
