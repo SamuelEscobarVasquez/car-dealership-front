@@ -6,6 +6,7 @@ export interface FlowNode {
   data: {
     label: string;
     config: Record<string, any>;
+    nodeType?: string;
   };
 }
 

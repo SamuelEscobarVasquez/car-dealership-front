@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import {
@@ -15,6 +15,8 @@ import {
   Divider,
   IconButton,
   Tooltip,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import {
   Chat as ChatIcon,
@@ -37,6 +39,20 @@ export const Sidebar: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { mode, toggleTheme } = useThemeContext();
+  const [githubAnchor, setGithubAnchor] = useState<null | HTMLElement>(null);
+
+  const handleGithubClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setGithubAnchor(event.currentTarget);
+  };
+
+  const handleGithubClose = () => {
+    setGithubAnchor(null);
+  };
+
+  const openRepo = (url: string) => {
+    window.open(url, '_blank');
+    handleGithubClose();
+  };
 
   return (
     <Drawer
@@ -104,14 +120,28 @@ export const Sidebar: React.FC = () => {
               {mode === 'dark' ? <LightMode /> : <DarkMode />}
             </IconButton>
           </Tooltip>
-          <Tooltip title="GitHub">
+          <Tooltip title="GitHub Repos">
             <IconButton
               size="small"
-              onClick={() => window.open('https://github.com', '_blank')}
+              onClick={handleGithubClick}
             >
               <GitHub />
             </IconButton>
           </Tooltip>
+          <Menu
+            anchorEl={githubAnchor}
+            open={Boolean(githubAnchor)}
+            onClose={handleGithubClose}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+            transformOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          >
+            <MenuItem onClick={() => openRepo('https://github.com/SamuelEscobarVasquez/car-dealership-front.git')}>
+              Frontend
+            </MenuItem>
+            <MenuItem onClick={() => openRepo('https://github.com/SamuelEscobarVasquez/car-dealership-back.git')}>
+              Backend
+            </MenuItem>
+          </Menu>
         </Box>
       </Box>
     </Drawer>

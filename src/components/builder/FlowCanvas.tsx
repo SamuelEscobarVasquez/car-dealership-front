@@ -12,6 +12,7 @@ import {
   addEdge,
   Connection,
   Node,
+  Edge,
   ReactFlowProvider,
   ReactFlowInstance,
 } from '@xyflow/react';
@@ -32,6 +33,9 @@ const nodeTypes = {
   'faq.specialist.openai': CustomNode,
   'generic.response.openai': CustomNode,
   'response.compose': CustomNode,
+  'validator.required_fields': CustomNode,
+  'autos.specialist.openai': CustomNode,
+  'dates.specialist.openai': CustomNode,
   default: CustomNode,
 };
 
@@ -63,8 +67,8 @@ export const FlowCanvas: React.FC = () => {
     selectNode,
   } = useFlowStore();
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
   // Check if there are unsaved changes
   const isDirty = useMemo(() => {

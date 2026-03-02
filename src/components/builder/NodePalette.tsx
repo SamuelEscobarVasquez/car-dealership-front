@@ -18,6 +18,9 @@ import {
   Chat,
   Output,
   DragIndicator,
+  DirectionsCar,
+  CalendarMonth,
+  FactCheck,
 } from '@mui/icons-material';
 import { NodeTypeDefinition } from '../../types';
 import styles from './NodePalette.module.scss';
@@ -38,6 +41,9 @@ const nodeIcons: Record<string, React.ReactNode> = {
   'faq.specialist.openai': <QuestionAnswer />,
   'generic.response.openai': <Chat />,
   'response.compose': <Output />,
+  'validator.required_fields': <FactCheck />,
+  'autos.specialist.openai': <DirectionsCar />,
+  'dates.specialist.openai': <CalendarMonth />,
 };
 
 const nodeColors: Record<string, string> = {
@@ -46,6 +52,9 @@ const nodeColors: Record<string, string> = {
   'faq.specialist.openai': '#2e7d32',
   'generic.response.openai': '#ed6c02',
   'response.compose': '#d32f2f',
+  'validator.required_fields': '#00897b',
+  'autos.specialist.openai': '#5e35b1',
+  'dates.specialist.openai': '#00acc1',
 };
 
 export const NodePalette: React.FC<NodePaletteProps> = ({ nodeTypes }) => {

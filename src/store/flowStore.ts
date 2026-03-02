@@ -93,7 +93,10 @@ export const useFlowStore = create<FlowStore>()((set, get) => ({
         id: n.id,
         type: n.type,
         position: n.position,
-        data: n.data,
+        data: {
+          ...n.data,
+          nodeType: n.data.nodeType || n.type, // Ensure nodeType is always in data
+        },
       }));
       const edges: Edge[] = flow.definition.edges.map((e: FlowEdge) => ({
         id: e.id,
